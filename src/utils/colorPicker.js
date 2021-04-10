@@ -1,31 +1,31 @@
 
 function colorPicker(entry) {
-  
+
   let color;
   switch (entry.name) {
     case 'sadness':
-      color = `#cf5c10`;
+      color = `#007Aff`;
       break;
     case 'joy':
-      color = `#00C49F`;
+      color = `#fb8832`;
       break;
     case 'fear':
-      color = `#123777`;
+      color = `#dadada`;
       break;
     case 'disgust':
-      color = `#FFBB28`;
+      color = `#97aa76`;
       break;
     case 'anger':
-      color = `#c40065`;
+      color = `#9b51e0`;
       break;
     case 'no emotion':
-      color = `#a9c36b`;
+      color = `#e6e5e6`;
       break;
     default:
       color = `#73c85b`;
   }
-  
-  
+
+
   return color;
 }
 

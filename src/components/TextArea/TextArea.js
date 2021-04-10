@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './text-area.css';
+import './TextArea.css';
 import cn from 'classnames';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import CopyBtn from '../../images/copy.svg';
@@ -11,36 +11,36 @@ function TextArea(props) {
     handleTypings,
     error,
   } = props;
-  
+
   const [textToCheck, setTextToCheck] = useState('');
   const [isTextReadyToCheck, setIsTextReadyToCheck] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [currentTextLength, setCurrentTextLength] = useState(0);
   const [isCopyToClipboard, setIsCopyToClipboard] = useState(false);
   const minTextLength = 15;
-  
+
   const handleChange = e => {
     const {value} = e.target;
     setIsTyping(!isTyping);
     setTextToCheck(value);
     setCurrentTextLength(textToCheck.length);
   };
-  
+
   const handleBlur = () => {
     handleTypings(false);
   };
-  
+
   const handleClearTxtBtn = e => {
     e.preventDefault();
     setTextToCheck('');
     setCurrentTextLength(0);
     resetStates();
   };
-  
+
   const handleOnCopy = () => {
     (currentTextLength !== 0) && setIsCopyToClipboard(true);
   };
-  
+
   useEffect(() => {
     if (isTextReadyToCheck && isTyping) {
       const timeout = setTimeout(() => {
@@ -51,28 +51,28 @@ function TextArea(props) {
       };
     }
   }, [isTextReadyToCheck, isTyping]);
-  
+
   useEffect(() => {
     setIsTyping(true);
     setCurrentTextLength(textToCheck.length);
     (currentTextLength > 1) ? handleTypings(true) : handleTypings(false);
     (!isTextReadyToCheck || error) && resetStates();
   }, [isTyping]);
-  
+
   useEffect(() => {
     (currentTextLength > 1) && handleTypings(true);
     (currentTextLength > minTextLength) ?
         setIsTextReadyToCheck(true) :
         setIsTextReadyToCheck(false);
   }, [currentTextLength]);
-  
+
   useEffect(() => {
     const copyMsgShown = setTimeout(() => {
       setIsCopyToClipboard(false);
     }, 3000);
     return () => clearTimeout(copyMsgShown);
   }, [isCopyToClipboard]);
-  
+
   return (
       <form className='form' name='text-area-form' noValidate>
         <fieldset className='form__field'>
@@ -92,6 +92,18 @@ function TextArea(props) {
                 disabled={false}
             />
           </label>
+          <p
+              className={cn('form__hint-msg_disabled', {
+                'form__hint-msg': (currentTextLength < minTextLength + 1 &&
+                    currentTextLength > 1),
+              })}
+          >
+            Not enough characters
+          </p>
+          <p
+              className={cn('copy-to-clipboard__msg',
+              {'copy-to-clipboard__msg_success': isCopyToClipboard})}
+          >Copied</p>
           <CopyToClipboard text={textToCheck} onCopy={handleOnCopy}>
             <img
                 className={cn('copy-to-clipboard',
@@ -100,18 +112,6 @@ function TextArea(props) {
                 alt='Copy to clipboard'
             />
           </CopyToClipboard>
-          <p
-              className={cn('copy-to-clipboard__msg',
-                  {'copy-to-clipboard__msg_success': isCopyToClipboard})}
-          >copied</p>
-          <p
-              className={cn('form__hint-msg_disabled', {
-                'form__hint-msg': (currentTextLength < minTextLength + 1 &&
-                    currentTextLength > 1),
-              })}
-          >
-            not enough characters
-          </p>
         </fieldset>
         <button
             type='submit'

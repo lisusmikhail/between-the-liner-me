@@ -1,0 +1,40 @@
+.recharts-wrapper{
+  background-color: #fff;
+  border: solid 12px rgba(145, 150, 247, 0.37);
+  border-radius:40px;
+  box-shadow: 110px 81px 120px -10px rgba(8, 17, 30, 0.2);
+  margin: 30px 0 0 0;
+}
+
+.chart-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.chart-container__loader {
+  position: absolute;
+  left: 332px;
+  bottom: 86px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .chart-container__loader {
+    left: 262px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .chart-container__loader {
+    left: 162px;
+    bottom: 76px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .chart-container__loader {
+    left: 102px;
+    bottom: 56px;
+  }
+}

@@ -3,7 +3,12 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  width: 100%;
+  font-family: 'Poppins','Inter', sans-serif;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:  url("./images/pattern.svg") , linear-gradient(180deg, #6E76F3 0%, #928BFD 100%);
+  background-repeat: repeat;
+  background-position: center;
 }
