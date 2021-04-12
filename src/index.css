@@ -11,5 +11,4 @@ body {
   background-image:  url("./images/pattern.svg") , linear-gradient(180deg, #6E76F3 0%, #928BFD 100%);
   background-repeat: repeat;
   background-position: center;
-  /*background-size: cover;*/
 }

@@ -7,10 +7,6 @@
   position: relative;
 }
 
-.main-banner__image-container{
-  /*flex:1;*/
-}
-
 .main-banner__link {
   padding: 2.7vmin 8vmin;
   margin: 13vh 0 3vh  0;
@@ -39,15 +35,9 @@
 @media screen and (max-width: 450px) {
   .main-banner__link {
     padding: 12px 40px;
-    /*margin: 15vh 0 3vh  0;*/
     border-radius: 12px;
     font-weight: bold;
-    /*font-size: 16px;*/
     line-height: 20px;
-    /*text-transform: uppercase;*/
-    /*text-decoration: none;*/
-    /*color: #fff;*/
-    /*background-color: #FD9854;*/
   }
 }
 
@@ -55,6 +45,4 @@
   .main-banner__image{
     height: 23vh;
   }
-
-
 }
