@@ -12,7 +12,7 @@ function MainBanner(props) {
             <div className="main-banner__image-container">
                  <img className="main-banner__image" src={mainBanner} alt="Between-The-Liner"/>
             </div>
-             <About location=''/>
+            <About location=''/>
             <Link to="/analyser" className="main-banner__link">get started</Link>
         </main>
     );
