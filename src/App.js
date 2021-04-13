@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import MainBanner from "./components/MainBanner/MainBanner";
 
-import './App.css';
 import Analyser from "./components/Analyser/Analyser";
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
         {transitions.map(({ item, props, key }) => (
          <animated.div key={key} style={props}>
             <Switch location={item}>
-             <Route exact path="/analyser">
+             <Route path="/analyser">
                 <Analyser/>
              </Route>
              <Route path="/*">

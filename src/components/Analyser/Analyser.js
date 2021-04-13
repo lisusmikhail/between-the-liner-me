@@ -41,7 +41,7 @@ function Analyser(props) {
             setEmotions(Object.entries(emotions));
             setError('');
         } else if (isError && !isEnglish) {
-            handleTranslation(text, setChartLoader, analyzeText, setError,
+					handleTranslation(text, setChartLoader, analyzeText, setError,
                 frontendErrorLog);
         } else if (isError && !isProcessableEntity) {
             setError('Not enough text..');
@@ -51,11 +51,11 @@ function Analyser(props) {
     };
 
     const analyzeText = (text) => {
-        setChartLoader(true);
+			setChartLoader(true);
         setTypingLoader(false);
         resetStates();
         textToCheck(text).then((result) => {
-            setChartLoader(false);
+					setChartLoader(false);
             setTypingLoader(false);
             logQueries(result, text, frontendErrorLog);
             analyzeResults(result, text);

@@ -2,7 +2,7 @@ import {db} from './firebase';
 
 const handleTranslation = (
     text, setChartLoader, analyzeText, setError, frontendErrorLog) => {
-  setChartLoader(true);
+	setChartLoader(true);
   db.collection('translations').add({input: text}).then(docRef => {
     db.collection('translations')
       .doc(docRef.id)
@@ -16,7 +16,7 @@ const handleTranslation = (
         }
       });
   }).catch(err => {
-    frontendErrorLog(err).then(_ => {
+		frontendErrorLog(err).then(_ => {
     }).catch(_ => {
     });
   });
